@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>localStorage Demo</title></head>
+<body>
+  <h2>localStorage Username Manager</h2>
+  <input type="text" id="uname" placeholder="Enter username">
+  <button onclick="saveUser()">Save</button>
+  <button onclick="displayUser()">Display</button>
+  <button onclick="clearUser()">Clear</button>
+  <p id="out"></p>
+
+  <script>
+    function saveUser() {
+      localStorage.setItem("username", document.getElementById("uname").value);
+      document.getElementById("out").textContent = "Saved to localStorage!";
+    }
+    function displayUser() {
+      var u = localStorage.getItem("username");
+      document.getElementById("out").textContent = u ? "Stored Username: " + u : "No username stored.";
+    }
+    function clearUser() {
+      localStorage.removeItem("username");
+      document.getElementById("out").textContent = "Cleared localStorage.";
+    }
+  </script>
+</body>
+</html>
